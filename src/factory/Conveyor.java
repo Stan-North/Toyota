@@ -13,7 +13,6 @@ public class Conveyor {
 
     public Conveyor(Factory factory, String country) {
         try {
-            // Коммент 1
             if (isCorrectCountry(country) && isCountryMatch(factory, country)) {
                 this.factory = factory;
                 this.country = country;
@@ -22,13 +21,6 @@ public class Conveyor {
             System.out.println(e.getMessage());
         }
     }
-
-//    public Conveyor(Factory factory, String country) throws CountyFactoryNotEqualException {
-//        if (isCorrectCountry(country) && isCountryMatch(factory, country)) {
-//            this.factory = factory;
-//            this.country = country;
-//        }
-//    }
 
     /**
      * проверка на соответсвите страны конвеера и фабрики
@@ -43,12 +35,14 @@ public class Conveyor {
     }
 
     /**
-     * проверка, есть ли страна для создания в enume
+     * проверка, есть ли страна для создания в Countries Enum
      */
     private boolean isCorrectCountry(String country) {
-        for (CountriesEnum element : CountriesEnum.values()) {
-            if (country.equals(element.getCountryName())) {
-                return true;
+        if (country != null) {
+            for (CountriesEnum element : CountriesEnum.values()) {
+                if (country.equals(element.getCountryName())) {
+                    return true;
+                }
             }
         }
         return false;
@@ -60,17 +54,13 @@ public class Conveyor {
       public Camry createCamry(String carColor, long carPrice) {
           BigDecimal price = BigDecimal.valueOf(carPrice);
 
-          Wheel firstWheel = factory.createWheel(WheeDiameters.CAMRY.getDiameter());
-          Wheel secondWheel = factory.createWheel(WheeDiameters.CAMRY.getDiameter());
-          Wheel thirdWheel = factory.createWheel(WheeDiameters.CAMRY.getDiameter());
-          Wheel fourthWheel = factory.createWheel(WheeDiameters.CAMRY.getDiameter());
-          Electrics camryElectrics = factory.createElectric();
-          Engine camryEngine = factory.createEngine();
-          FuelTank camryFuelTank = factory.createFuelTank();
-          Headlight camryHeadLight = factory.createHeadLight();
+          ElementsGeneric<Wheel, Wheel, Wheel, Wheel, Electrics, Engine, FuelTank, Headlight> details =
+                  factory.createAllElements(WheeDiameters.CAMRY.getDiameter());
 
-          return new Camry(carColor, CarsMaxSpeed.CAMRY.getMaxSpeed(),TransmissionEnum.AUTOMATIC.getTitle(), firstWheel,
-                  secondWheel, thirdWheel, fourthWheel, camryElectrics, camryEngine, camryFuelTank, camryHeadLight, price);
+          return new Camry(carColor, CarsMaxSpeed.CAMRY.getMaxSpeed(),TransmissionEnum.AUTOMATIC.getTitle(),
+                  details.getWheel1(), details.getWheel2(), details.getWheel3(),
+                  details.getWheel4(), details.getElectrics(), details.getEngine(),
+                  details.getFuelTank(), details.getHeadlight(), price);
       }
 
     /**
@@ -79,18 +69,12 @@ public class Conveyor {
     public Dyna createDyna(String carColor, long carPrice) {
         BigDecimal price = BigDecimal.valueOf(carPrice);
 
-        Wheel firstWheel = factory.createWheel(WheeDiameters.DYNA.getDiameter());
-        Wheel secondWheel = factory.createWheel(WheeDiameters.DYNA.getDiameter());
-        Wheel thirdWheel = factory.createWheel(WheeDiameters.DYNA.getDiameter());
-        Wheel fourthWheel = factory.createWheel(WheeDiameters.DYNA.getDiameter());
-        Electrics dynaElectrics = factory.createElectric();
-        Engine dynaEngine = factory.createEngine();
-        FuelTank dynaFuelTank = factory.createFuelTank();
-        Headlight dynaHeadLight = factory.createHeadLight();
+        ElementsGeneric<Wheel, Wheel, Wheel, Wheel, Electrics, Engine, FuelTank, Headlight> details =
+                factory.createAllElements(WheeDiameters.DYNA.getDiameter());
 
-        return new Dyna(carColor, CarsMaxSpeed.DYNA.getMaxSpeed(),TransmissionEnum.MANUAL.getTitle(), firstWheel,
-                secondWheel, thirdWheel, fourthWheel, dynaElectrics, dynaEngine, dynaFuelTank, dynaHeadLight, price,
-                DYNA_LOAD_CAPACITY);
+        return new Dyna(carColor, CarsMaxSpeed.DYNA.getMaxSpeed(),TransmissionEnum.MANUAL.getTitle(), details.getWheel1(),
+                details.getWheel2(), details.getWheel3(), details.getWheel4(), details.getElectrics(), details.getEngine(),
+                details.getFuelTank(), details.getHeadlight(), price, DYNA_LOAD_CAPACITY);
     }
 
     /**
@@ -99,18 +83,12 @@ public class Conveyor {
     public Hiance createHiance(String carColor, long carPrice) {
         BigDecimal price = BigDecimal.valueOf(carPrice);
 
-        Wheel firstWheel = factory.createWheel(WheeDiameters.HIANCE.getDiameter());
-        Wheel secondWheel = factory.createWheel(WheeDiameters.HIANCE.getDiameter());
-        Wheel thirdWheel = factory.createWheel(WheeDiameters.HIANCE.getDiameter());
-        Wheel fourthWheel = factory.createWheel(WheeDiameters.HIANCE.getDiameter());
-        Electrics hianceElectrics = factory.createElectric();
-        Engine hianceEngine = factory.createEngine();
-        FuelTank hianceFuelTank = factory.createFuelTank();
-        Headlight hianceHeadLight = factory.createHeadLight();
+        ElementsGeneric<Wheel, Wheel, Wheel, Wheel, Electrics, Engine, FuelTank, Headlight> details =
+                factory.createAllElements(WheeDiameters.HIANCE.getDiameter());
 
-        return new Hiance(carColor, CarsMaxSpeed.HIANCE.getMaxSpeed(),TransmissionEnum.MANUAL.getTitle(), firstWheel,
-                secondWheel, thirdWheel, fourthWheel, hianceElectrics, hianceEngine, hianceFuelTank, hianceHeadLight,
-                price, HIANCE_LOAD_CAPACITY);
+        return new Hiance(carColor, CarsMaxSpeed.HIANCE.getMaxSpeed(),TransmissionEnum.MANUAL.getTitle(), details.getWheel1(),
+                details.getWheel2(), details.getWheel3(), details.getWheel4(), details.getElectrics(), details.getEngine(),
+                details.getFuelTank(), details.getHeadlight(), price, HIANCE_LOAD_CAPACITY);
     }
 
     /**
@@ -119,18 +97,12 @@ public class Conveyor {
     public Solara createSolara(String carColor, long carPrice) {
         BigDecimal price = BigDecimal.valueOf(carPrice);
 
-        Wheel firstWheel = factory.createWheel(WheeDiameters.SOLARA.getDiameter());
-        Wheel secondWheel = factory.createWheel(WheeDiameters.SOLARA.getDiameter());
-        Wheel thirdWheel = factory.createWheel(WheeDiameters.SOLARA.getDiameter());
-        Wheel fourthWheel = factory.createWheel(WheeDiameters.SOLARA.getDiameter());
-        Electrics solaraElectrics = factory.createElectric();
-        Engine solaraEngine = factory.createEngine();
-        FuelTank solaraFuelTank = factory.createFuelTank();
-        Headlight solaraHeadLight = factory.createHeadLight();
+        ElementsGeneric<Wheel, Wheel, Wheel, Wheel, Electrics, Engine, FuelTank, Headlight> details =
+                factory.createAllElements(WheeDiameters.SOLARA.getDiameter());
 
-        return new Solara(carColor, CarsMaxSpeed.SOLARA.getMaxSpeed(),TransmissionEnum.ROBOT.getTitle(), firstWheel,
-                secondWheel, thirdWheel, fourthWheel, solaraElectrics, solaraEngine, solaraFuelTank, solaraHeadLight,
-                price);
+        return new Solara(carColor, CarsMaxSpeed.SOLARA.getMaxSpeed(),TransmissionEnum.ROBOT.getTitle(), details.getWheel1(),
+                details.getWheel2(), details.getWheel3(), details.getWheel4(), details.getElectrics(), details.getEngine(),
+                details.getFuelTank(), details.getHeadlight(), price);
     }
 
     public String getCountry() {

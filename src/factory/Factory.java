@@ -34,6 +34,23 @@ public class Factory {
     }
 
     /**
+     * создание всех комплектующих
+     */
+    public ElementsGeneric<Wheel, Wheel, Wheel, Wheel, Electrics, Engine, FuelTank, Headlight> createAllElements(int diameter){
+        Wheel wheel1 = createWheel(diameter);
+        Wheel wheel2 = createWheel(diameter);
+        Wheel wheel3 = createWheel(diameter);
+        Wheel wheel4 = createWheel(diameter);
+        Electrics electrics = createElectric();
+        Engine engine = createEngine();
+        FuelTank fuelTank = createFuelTank();
+        Headlight headlight = createHeadLight();
+
+        return new ElementsGeneric<>(wheel1, wheel2, wheel3, wheel4, electrics, engine, fuelTank, headlight);
+    }
+
+
+    /**
      * Создание колеса
      */
     protected Wheel createWheel(int diameter) {
@@ -67,4 +84,11 @@ public class Factory {
     protected Headlight createHeadLight() {
         return new Headlight(true);
     }
+
+
+
+    //Electrics camryElectrics = factory.createElectric();
+    //          Engine camryEngine = factory.createEngine();
+    //          FuelTank camryFuelTank = factory.createFuelTank();
+    //          Headlight camryHeadLight = factory.createHeadLight();
 }
