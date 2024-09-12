@@ -10,6 +10,7 @@ public class Conveyor {
     private static final int HIANCE_LOAD_CAPACITY = 800;
     private Factory factory;
     private String country;
+    //
 
     public Conveyor(Factory factory, String country) {
         try {
