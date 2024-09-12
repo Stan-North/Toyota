@@ -13,6 +13,7 @@ public class Conveyor {
 
     public Conveyor(Factory factory, String country) {
         try {
+            // Коммент 1
             if (isCorrectCountry(country) && isCountryMatch(factory, country)) {
                 this.factory = factory;
                 this.country = country;
