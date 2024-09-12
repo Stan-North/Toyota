@@ -2,7 +2,7 @@ package car_components;
 
 import java.math.BigDecimal;
 
-public class FuelTank {
+public class FuelTank extends CarComponent{
     private double amountOfFuel;
 
     public FuelTank(double amountOfFuel) {

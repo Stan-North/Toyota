@@ -4,7 +4,7 @@ import car_components.*;
 
 import java.math.BigDecimal;
 
-public abstract class Cabriolet extends Car {
+public abstract class Cabriolet extends LightCar {
     private boolean isRoofRaised = false;
 
     public Cabriolet(String color, int maxSpeed, String transmission, Wheel firstWheel, Wheel secondWheel,

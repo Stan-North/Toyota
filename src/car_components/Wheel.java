@@ -1,8 +1,8 @@
 package car_components;
 
-public class Wheel {
+public class Wheel extends CarComponent {
     private boolean isWorks;
-    private int diameter;
+    private final int diameter;
 
     public Wheel(boolean isWorks, int diameter) {
         this.isWorks = isWorks;
@@ -15,5 +15,9 @@ public class Wheel {
 
     public boolean isWorks() {
         return isWorks;
+    }
+
+    public void setWorks(boolean works) {
+        isWorks = works;
     }
 }

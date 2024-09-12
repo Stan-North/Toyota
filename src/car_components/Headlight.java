@@ -1,6 +1,6 @@
 package car_components;
 
-public class Headlight {
+public class Headlight extends CarComponent {
     private boolean isWorks;
 
     public Headlight(boolean isWorks) {

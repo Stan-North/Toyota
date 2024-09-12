@@ -3,6 +3,7 @@ import car_models.Camry;
 import car_models.Dyna;
 import car_models.Hiance;
 import car_models.Solara;
+import car_types.Car;
 import car_types.StartCarException;
 import factory.Conveyor;
 import factory.CountriesEnum;
@@ -16,6 +17,7 @@ public class Runner {
         Conveyor conveyor = new Conveyor(factory1, CountriesEnum.JAPAN.getCountryName());
 
         Camry camry = conveyor.createCamry("Black", 2_000_000);
+        Camry camry2 = conveyor.createCamry("White", 2_500_000);
 
     }
 }
