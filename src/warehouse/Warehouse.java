@@ -1,8 +1,6 @@
 package warehouse;
 
-
 import car_types.Car;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
