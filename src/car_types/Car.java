@@ -5,11 +5,9 @@ import car_components.*;
 import java.math.BigDecimal;
 
 public abstract class Car {
+    //private String carType = "";
     private static final int COUNT_OF_WHEELS = 4;
     private static final double MIN_AMOUNT_OF_FUEL_TO_MOVE = 0;
-//    Для всех машин характерны следующие атрибуты: цвет, максимальная скорость,
-//    тип коробки передач (акпп, механика, робот), в состоянии движения (да/нет).
-//    Машины состоят из следующих компонентов: 4 колеса, бензобак, двигатель, электрика, фары
     private final String color;
     private final int maxSpeed;
     private final String transmission;
@@ -23,13 +21,15 @@ public abstract class Car {
     private final Engine engine;
     private final FuelTank fuelTank;
     private final Headlight headlight;
-    private BigDecimal carPrice;
+    private final BigDecimal carPrice;
 
     private boolean isMoving;
 
+    private String country;
+
     public Car(String color, int maxSpeed, String transmission, Wheel firstWheel, Wheel secondWheel,
                Wheel thirdWheel, Wheel fourthWheel, Electrics electrics, Engine engine,
-               FuelTank fuelTank, Headlight headlight, BigDecimal carPrice) {
+               FuelTank fuelTank, Headlight headlight, BigDecimal carPrice, String country) {
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.transmission = transmission;
@@ -42,11 +42,9 @@ public abstract class Car {
         this.fuelTank = fuelTank;
         this.headlight = headlight;
         this.carPrice = carPrice;
+        this.country = country;
     }
 
-    /**
-     * начало движения
-     */
     public void startMove() {
         try {
             if (isCarCanMove()) {
@@ -57,16 +55,10 @@ public abstract class Car {
         }
     }
 
-    /**
-     * остановка движения
-     */
     public void stopMove() {
         setMoving(false);
     }
 
-    /**
-     * велючение фар
-     */
     public void turnOnTheLight() {
         this.headlight.setWorks(true);
     }
@@ -152,4 +144,16 @@ public abstract class Car {
     public String getTransmission() {
         return transmission;
     }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public abstract String getModel();
+
+    public BigDecimal getCarPrice() {
+        return carPrice;
+    }
+
+
 }

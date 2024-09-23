@@ -12,9 +12,9 @@ public class Solara extends Cabriolet {
 
     public Solara(String color, int maxSpeed, String transmission, Wheel firstWheel, Wheel secondWheel,
                   Wheel thirdWheel, Wheel fourthWheel, Electrics electrics, Engine engine, FuelTank fuelTank,
-                  Headlight headlight, BigDecimal carPrice) {
+                  Headlight headlight, BigDecimal carPrice, String country) {
         super(color, maxSpeed, transmission, firstWheel, secondWheel, thirdWheel, fourthWheel, electrics, engine,
-                fuelTank, headlight, carPrice);
+                fuelTank, headlight, carPrice, country);
         this.miniFridge = new MiniFridge();
     }
 
@@ -28,5 +28,10 @@ public class Solara extends Cabriolet {
         private void coolTheDrink() {
             System.out.println(COOL_DRINK_MESSAGE);
         }
+    }
+
+    @Override
+    public String getModel() {
+        return ModelsParameters.SOLARA.getCarModel();
     }
 }

@@ -10,9 +10,9 @@ public abstract class LightCar extends Car {
 
     public LightCar(String color, int maxSpeed, String transmission, Wheel firstWheel, Wheel secondWheel,
                     Wheel thirdWheel, Wheel fourthWheel, Electrics electrics, Engine engine, FuelTank fuelTank,
-                    Headlight headlight, BigDecimal carPrice) {
+                    Headlight headlight, BigDecimal carPrice, String country) {
         super(color, maxSpeed, transmission, firstWheel, secondWheel, thirdWheel, fourthWheel, electrics, engine,
-                fuelTank, headlight, carPrice);
+                fuelTank, headlight, carPrice, country);
     }
 
     public void turnOnTheCruiseControl() {

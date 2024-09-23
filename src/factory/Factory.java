@@ -2,8 +2,6 @@ package factory;
 
 import car_components.*;
 
-import java.math.BigDecimal;
-
 public class Factory {
     private static final double DEFAULT_AMOUNT_OF_FUEL = 0;
     private final String country;
@@ -36,7 +34,8 @@ public class Factory {
     /**
      * создание всех комплектующих
      */
-    public ElementsGeneric<Wheel, Wheel, Wheel, Wheel, Electrics, Engine, FuelTank, Headlight> createAllElements(int diameter){
+    public ElementsGeneric<Wheel, Wheel, Wheel, Wheel, Electrics, Engine, FuelTank, Headlight> createAllElements(
+            int diameter){
         Wheel wheel1 = createWheel(diameter);
         Wheel wheel2 = createWheel(diameter);
         Wheel wheel3 = createWheel(diameter);
@@ -49,46 +48,23 @@ public class Factory {
         return new ElementsGeneric<>(wheel1, wheel2, wheel3, wheel4, electrics, engine, fuelTank, headlight);
     }
 
-
-    /**
-     * Создание колеса
-     */
     protected Wheel createWheel(int diameter) {
         return new Wheel(true, diameter);
     }
 
-    /**
-     * Создание электроники
-     */
     protected Electrics createElectric() {
         return new Electrics(true);
     }
 
-    /**
-     * Создание двигателя
-     */
     protected Engine createEngine() {
         return new Engine(true);
     }
 
-    /**
-     * Создание бензобака
-     */
     protected FuelTank createFuelTank() {
         return new FuelTank(DEFAULT_AMOUNT_OF_FUEL);
     }
 
-    /**
-     * Создание фар
-     */
     protected Headlight createHeadLight() {
         return new Headlight(true);
     }
-
-
-
-    //Electrics camryElectrics = factory.createElectric();
-    //          Engine camryEngine = factory.createEngine();
-    //          FuelTank camryFuelTank = factory.createFuelTank();
-    //          Headlight camryHeadLight = factory.createHeadLight();
 }
