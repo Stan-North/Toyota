@@ -13,13 +13,10 @@ public class Warehouse {
     private static final int INDEX_SUBSTRACT_TO_FIND_CAR = 1;
     private static final String WAREHOUSE_IS_FULL_MESSAGE = "На складе нет места";
 
-
     private int carCounter;
-
     private HashMap<String, ArrayList<Car>> cars;
 
     public Warehouse() {
-
         cars = new HashMap<>();
         cars.put(CAMRY.getCarModel(), new ArrayList<>(MAX_CAR_CAPACITY));
         cars.put(DYNA.getCarModel(), new ArrayList<>(MAX_CAR_CAPACITY));
@@ -35,10 +32,10 @@ public class Warehouse {
             ArrayList<Car> carList = cars.get(car.getModel());
             carList.add(car);
             cars.put(car.getModel(), carList);
+            carCounter++;
         } else {
             System.out.println(WAREHOUSE_IS_FULL_MESSAGE);
         }
-
     }
 
     /**

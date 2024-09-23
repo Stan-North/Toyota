@@ -12,7 +12,6 @@ public class Factory {
         } else {
             throw new RuntimeException("Такой страны нет");
         }
-
     }
 
     public String getCountry() {

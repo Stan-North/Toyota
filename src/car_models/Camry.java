@@ -7,8 +7,6 @@ import java.math.BigDecimal;
 public class Camry extends LightCar {
     private final Usb usb;
     private static final String MUSIC_MESSAGE = "Музыка подключена";
-    //private final String carType = ModelsParameters.CAMRY.getCarModel();
-
 
     public Camry(String color, int maxSpeed, String transmission, Wheel firstWheel, Wheel secondWheel,
                  Wheel thirdWheel, Wheel fourthWheel, Electrics electrics, Engine engine,
@@ -18,21 +16,18 @@ public class Camry extends LightCar {
         this.usb = new Usb();
     }
 
-    /**
-     * подключение музыки
-     */
     public void turnOnTheMusic() {
         usb.turnOnTheMusic();
+    }
+
+    @Override
+    public String getModel() {
+        return ModelsParameters.CAMRY.getCarModel();
     }
 
     private class Usb {
         private void turnOnTheMusic() {
             System.out.println(MUSIC_MESSAGE);
         }
-    }
-
-    @Override
-    public String getModel() {
-        return ModelsParameters.CAMRY.getCarModel();
     }
 }

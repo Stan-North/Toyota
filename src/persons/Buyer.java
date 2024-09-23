@@ -22,7 +22,6 @@ public class Buyer {
         return amountOfMoney;
     }
 
-
     public void substractMoney(BigDecimal moneyToTake) {
          amountOfMoney = amountOfMoney.subtract(moneyToTake);
     }
