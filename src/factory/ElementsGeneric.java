@@ -2,10 +2,11 @@ package factory;
 
 import car_components.CarComponent;
 
-public class ElementsGeneric<wheel1 extends CarComponent, wheel2 extends CarComponent, wheel3 extends CarComponent,
+
+public class ElementsGeneric<Wheel extends CarComponent, wheel2 extends CarComponent, wheel3 extends CarComponent,
         wheel4 extends CarComponent, electrics extends CarComponent, engine extends CarComponent,
         fuelTank extends CarComponent, headlight extends CarComponent> {
-    private wheel1 wheel1;
+    private Wheel wheel1;
     private wheel2 wheel2;
     private wheel3 wheel3;
     private wheel4 wheel4;
@@ -14,7 +15,7 @@ public class ElementsGeneric<wheel1 extends CarComponent, wheel2 extends CarComp
     private fuelTank fuelTank;
     private headlight headlight;
 
-    public ElementsGeneric(wheel1 wheel1, wheel2 wheel2, wheel3 wheel3, wheel4 wheel4, electrics electrics,
+    public ElementsGeneric(Wheel wheel1, wheel2 wheel2, wheel3 wheel3, wheel4 wheel4, electrics electrics,
                            engine engine, fuelTank fuelTank, headlight headlight) {
         this.wheel1 = wheel1;
         this.wheel2 = wheel2;
@@ -26,7 +27,7 @@ public class ElementsGeneric<wheel1 extends CarComponent, wheel2 extends CarComp
         this.headlight = headlight;
     }
 
-    public wheel1 getWheel1() {
+    public Wheel getWheel1() {
         return wheel1;
     }
 

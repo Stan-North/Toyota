@@ -9,9 +9,9 @@ public abstract class Cabriolet extends LightCar {
 
     public Cabriolet(String color, int maxSpeed, String transmission, Wheel firstWheel, Wheel secondWheel,
                      Wheel thirdWheel, Wheel fourthWheel, Electrics electrics, Engine engine, FuelTank fuelTank,
-                     Headlight headlight, BigDecimal carPrice) {
+                     Headlight headlight, BigDecimal carPrice, String country) {
         super(color, maxSpeed, transmission, firstWheel, secondWheel, thirdWheel, fourthWheel, electrics,
-                engine, fuelTank, headlight, carPrice);
+                engine, fuelTank, headlight, carPrice, country);
     }
 
     /**
