@@ -3,7 +3,7 @@ package factory;
 public enum CountriesEnum {
     JAPAN("Япония");
 
-    private String countryName;
+    private final String countryName;
 
     CountriesEnum(String countryName) {
         this.countryName = countryName;

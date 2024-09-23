@@ -65,7 +65,6 @@ public class Conveyor {
      * создание Dyna
      */
     public Dyna createDyna(String carColor, BigDecimal carPrice) {
-
         ElementsGeneric<Wheel, Wheel, Wheel, Wheel, Electrics, Engine, FuelTank, Headlight> details =
                 factory.createAllElements(ModelsParameters.DYNA.getDiameter());
 
@@ -78,7 +77,6 @@ public class Conveyor {
      * создание Hiance
      */
     public Hiance createHiance(String carColor, BigDecimal carPrice) {
-
         ElementsGeneric<Wheel, Wheel, Wheel, Wheel, Electrics, Engine, FuelTank, Headlight> details =
                 factory.createAllElements(ModelsParameters.HIANCE.getDiameter());
 
@@ -91,7 +89,6 @@ public class Conveyor {
      * создание Solara
      */
     public Solara createSolara(String carColor, BigDecimal carPrice) {
-
         ElementsGeneric<Wheel, Wheel, Wheel, Wheel, Electrics, Engine, FuelTank, Headlight> details =
                 factory.createAllElements(ModelsParameters.SOLARA.getDiameter());
 

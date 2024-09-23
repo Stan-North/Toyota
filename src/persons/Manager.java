@@ -24,16 +24,12 @@ public class Manager {
     private static final String MODEL_MESSAGE = "Модель: ";
     private static final String PRICE_MESSAGE = "Стоимость продажи: ";
     private static final String COST_MESSAGE = "Себестоимость: ";
-
-
-
     private static final BigDecimal PRODUCTION_MARGIN_MULTIPLIER = BigDecimal.valueOf(0.1);
 
     private Warehouse warehouse;
     private Conveyor conveyor;
     private String name;
     private Report report;
-
 
     public Manager(Warehouse warehouse, Conveyor conveyor, String name) {
         this.warehouse = warehouse;
@@ -42,13 +38,10 @@ public class Manager {
         report = new Report(name);
     }
 
-
-
     /**
      * проверка, хватает ли денег на что-либо
      */
     private static boolean isEnoughMoney(BigDecimal buyerMoney) {
-
         for (ModelsParameters modelsParameters : ModelsParameters.values()) {
             if (buyerMoney.compareTo(modelsParameters.getPrice()) >= COMPARE_EQUAL_VALUE) {
                 return true;
@@ -63,7 +56,6 @@ public class Manager {
     private boolean isEnoughMoneyToOrderFromFactory(BigDecimal buyerMoney, BigDecimal carPriceWithMargin) {
         return buyerMoney.compareTo(carPriceWithMargin) >= COMPARE_EQUAL_VALUE;
     }
-
 
     public Car sellCar(Buyer buyer) {
         BigDecimal buyerMoney = buyer.getAmountOfMoney();
@@ -131,7 +123,6 @@ public class Manager {
         printWriter.println(EXPENSES_MESSAGE + report.countExpenses());
         printWriter.println(PROFIT_MESSAGE + report.countProfit());
     }
-
 
     private void updateReport(Car car) {
         report.addCar(car);

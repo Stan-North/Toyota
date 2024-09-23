@@ -13,13 +13,12 @@ public enum ModelsParameters {
     DYNA("Dyna", 20, 160, BigDecimal.valueOf(22_000), "black",
             BigDecimal.valueOf(12000));
 
-    private String carModel;
-    private int diameter;
-    private int maxSpeed;
-    private BigDecimal price;
-    private String standartColor;
-    private BigDecimal costPrice;
-
+    private final String carModel;
+    private final int diameter;
+    private final int maxSpeed;
+    private final BigDecimal price;
+    private final String standartColor;
+    private final BigDecimal costPrice;
 
     ModelsParameters(String carModel, int diameter, int maxSpeed, BigDecimal price, String standartColor,
                      BigDecimal costPrice) {
