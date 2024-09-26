@@ -8,7 +8,7 @@ public class Cashier {
     private static final String PRINT_INCOME_MESSAGE = "Сумма проданных машин: ";
     private static BigDecimal totalIncome = BigDecimal.ZERO;
 
-    public static void addIncome(Car car) {
+    public void addIncome(Car car) {
         if (car != null) {
             totalIncome = totalIncome.add(car.getCarPrice());
         }
